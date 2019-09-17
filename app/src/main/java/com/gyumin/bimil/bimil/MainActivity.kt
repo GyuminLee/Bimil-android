@@ -15,23 +15,20 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var secretViewModel: SecretViewModel
 
-
-
-    override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
-        System.out.println("onSaveInstanceState Call")
-        outState?.putString("stringKey", "String Test")
-        outState?.putBoolean("booleanKey", true)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        super.onRestoreInstanceState(savedInstanceState)
-        if(savedInstanceState != null) {
-            println(savedInstanceState.getString("stringKey"))
-            println(savedInstanceState.getBoolean("booleanKey"))
-        }
-    }
-
+//    override fun onSaveInstanceState(outState: Bundle?) {
+//        super.onSaveInstanceState(outState)
+//        System.out.println("onSaveInstanceState Call")
+//        outState?.putString("stringKey", "String Test")
+//        outState?.putBoolean("booleanKey", true)
+//    }
+//
+//    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+//        super.onRestoreInstanceState(savedInstanceState)
+//        if(savedInstanceState != null) {
+//            println(savedInstanceState.getString("stringKey"))
+//            println(savedInstanceState.getBoolean("booleanKey"))
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +38,9 @@ class MainActivity : AppCompatActivity() {
             { secret ->
                 val intent = Intent(this, AddActivity::class.java)
                 intent.putExtra(AddActivity.EXTRA_SECRET_NAME, secret.name)
-                intent.putExtra(AddActivity.EXTRA_SECRET_TYPE, secret.type)
+                intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_NUMBER, secret.typeNumber)
+                intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_CAPITAL, secret.typeCapital)
+                intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_SPECIALCHARACTER, secret.typeSpecialCharacter)
                 intent.putExtra(AddActivity.EXTRA_SECRET_ADDRESS, secret.address)
                 intent.putExtra(AddActivity.EXTRA_SECRET_NOTE, secret.note)
                 intent.putExtra(AddActivity.EXTRA_SECRET_ID, secret.id)

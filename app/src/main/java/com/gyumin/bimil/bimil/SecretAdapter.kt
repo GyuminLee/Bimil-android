@@ -1,11 +1,16 @@
 package com.gyumin.bimil.bimil
 
+import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.gyumin.bimil.R
 import com.gyumin.bimil.data.Secret
 
@@ -29,17 +34,44 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         private val nameTv = itemView.findViewById<TextView>(R.id.item_tv_name)
-//        private val typeTv = itemView.findViewById<TextView>(R.id.item_tv_type)
         private val addressTv = itemView.findViewById<TextView>(R.id.item_tv_address)
+        private val typeNumBtn = itemView.findViewById<Button>(R.id.btn_type_num)
+        private val typeCapBtn = itemView.findViewById<Button>(R.id.btn_type_cap)
+        private val typeSpeBtn = itemView.findViewById<Button>(R.id.btn_type_spe)
 //        private val noteTv = itemView.findViewById<TextView>(R.id.item_tv_note)
         private val faviconIv = itemView.findViewById<ImageView>(R.id.item_iv_icon)
 
         fun bind(secret: Secret) {
             nameTv.text = secret.name
-//            typeTv.text = secret.type
+
+            if(secret.typeNumber) {
+                typeNumBtn.setBackgroundResource(R.drawable.button_type_bg)
+
+            } else {
+                typeNumBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
+                typeNumBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
+            }
+
+            if(secret.typeCapital) {
+                typeCapBtn.setBackgroundResource(R.drawable.button_type_bg)
+            } else {
+                typeCapBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
+                typeCapBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
+
+            }
+
+            if(secret.typeSpecialCharacter) {
+                typeSpeBtn.setBackgroundResource(R.drawable.button_type_bg)
+            } else {
+                typeSpeBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
+                typeSpeBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
+
+            }
+
             addressTv.text = secret.address
+            Glide.with(itemView).load("http://${secret.address}/favicon.ico").override(80,80).into(faviconIv)
+            Log.d("Test", ("http://${secret.address}/favicon.ico"))
 //            noteTv.text = secret.note
-//            faviconIv.setImageResource()
 
             itemView.setOnClickListener {
                 secretItemClick(secret)

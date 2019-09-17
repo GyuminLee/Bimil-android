@@ -23,26 +23,31 @@ class AddActivity : AppCompatActivity() {
 
         if(intent != null
             && intent.hasExtra(EXTRA_SECRET_NAME)
-            && intent.hasExtra(EXTRA_SECRET_TYPE)
             && intent.hasExtra(EXTRA_SECRET_ID)
             ) {
+
             add_edittext_name.setText(intent.getStringExtra(EXTRA_SECRET_NAME))
-//            add_edittext_type.setText(intent.getStringExtra(EXTRA_SECRET_TYPE))
+            type_checkbox_number.setChecked(intent.getBooleanExtra(EXTRA_SECRET_TYPE_NUMBER, false))
+            type_checkbox_capital.setChecked(intent.getBooleanExtra(EXTRA_SECRET_TYPE_CAPITAL, false))
+            type_checkbox_specialcharacter.setChecked(intent.getBooleanExtra(
+                EXTRA_SECRET_TYPE_SPECIALCHARACTER, false))
             add_edittext_address.setText(intent.getStringExtra(EXTRA_SECRET_ADDRESS))
             add_edittext_note.setText(intent.getStringExtra(EXTRA_SECRET_NOTE))
             id = intent.getLongExtra(EXTRA_SECRET_ID, -1)
         }
 
         add_button.setOnClickListener {
-            val name = add_edittext_name.text.toString() //.trim()
-            val type = "TODO : Change to the checkbox"
+            val name = add_edittext_name.text.toString()
+            val typeNumber = type_checkbox_number.isChecked
+            val typeCapital = type_checkbox_capital.isChecked
+            val typeSpecialCharacter = type_checkbox_specialcharacter.isChecked
             val address = add_edittext_address.text.toString()
             val note = add_edittext_note.text.toString()
 
-            if(name.isEmpty() || type.isEmpty()) {
+            if(name.isEmpty()) {
                 Toast.makeText(this, "At lest, Please enter name and PW type.", Toast.LENGTH_SHORT).show()
             } else {
-                val secret = Secret(id, name, type, address, note)
+                val secret = Secret(id, name, typeNumber, typeCapital, typeSpecialCharacter, address, note)
                 secretViewModel.insert(secret)
                 finish()
             }
@@ -51,10 +56,12 @@ class AddActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_SECRET_NAME     = "EXTRA_SECRET_NAME"
-        const val EXTRA_SECRET_TYPE     = "EXTRA_SECRET_TYPE"
-        const val EXTRA_SECRET_ADDRESS  = "EXTRA_SECRET_ADDRESS"
-        const val EXTRA_SECRET_NOTE     = "EXTRA_SECRET_NOTE"
-        const val EXTRA_SECRET_ID       = "EXTRA_SECRET_ID"
+        const val EXTRA_SECRET_NAME                  = "EXTRA_SECRET_NAME"
+        const val EXTRA_SECRET_TYPE_NUMBER           = "EXTRA_TYPE_NUMBER"
+        const val EXTRA_SECRET_TYPE_CAPITAL          = "EXTRA_TYPE_CAPITAL"
+        const val EXTRA_SECRET_TYPE_SPECIALCHARACTER = "EXTRA_TYPE_SPECIALCHARACTER"
+        const val EXTRA_SECRET_ADDRESS               = "EXTRA_SECRET_ADDRESS"
+        const val EXTRA_SECRET_NOTE                  = "EXTRA_SECRET_NOTE"
+        const val EXTRA_SECRET_ID                    = "EXTRA_SECRET_ID"
     }
 }

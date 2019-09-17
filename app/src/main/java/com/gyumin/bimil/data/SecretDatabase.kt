@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = [Secret::class], version = 1)
+@Database(entities = [Secret::class], version = 2)
 
 abstract class SecretDatabase: RoomDatabase() {
     abstract fun secretDao(): SecretDao

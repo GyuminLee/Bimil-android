@@ -13,15 +13,21 @@ data class Secret(
     @ColumnInfo(name = "name")
     var name: String,
 
-    @ColumnInfo(name = "type")
-    var type: String,
+    @ColumnInfo(name = "typeNumber")
+    var typeNumber: Boolean,
 
-    @ColumnInfo(name = "note")
-    var note: String,
+    @ColumnInfo(name = "typeCapital")
+    var typeCapital: Boolean,
+
+    @ColumnInfo(name = "typeSpecialCharacter")
+    var typeSpecialCharacter: Boolean,
 
     @ColumnInfo(name = "address")
-    var address: String
+    var address: String,
+
+    @ColumnInfo(name = "note")
+    var note: String
 ) {
-    constructor() : this(null, "", "", "", "")
+    constructor() : this(null, "", false, false, false, "", "")
 }
 

@@ -49,5 +49,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVer"
     kapt "com.google.dagger:dagger-compiler:$daggerVer"
 
-
+//Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }
