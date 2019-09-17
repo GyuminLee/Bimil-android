@@ -1,4 +1,4 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.data
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*

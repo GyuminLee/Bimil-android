@@ -43,5 +43,11 @@ dependencies {
     kapt 'android.arch.persistence.room:compiler:1.1.1'
     kapt 'android.arch.lifecycle:compiler:1.1.1'
 
+//Dagger2
+    def daggerVer = "2.14.1"
+    implementation "com.google.dagger:dagger-android-support:$daggerVer" // if you use the support libraries
+    kapt "com.google.dagger:dagger-android-processor:$daggerVer"
+    kapt "com.google.dagger:dagger-compiler:$daggerVer"
+
 
 }

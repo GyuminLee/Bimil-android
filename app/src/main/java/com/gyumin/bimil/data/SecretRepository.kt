@@ -1,4 +1,4 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.data
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
@@ -6,7 +6,9 @@ import java.lang.Exception
 
 class SecretRepository(application: Application) {
 
-    private val secretDatabase = SecretDatabase.getInstance(application)!!
+    private val secretDatabase = SecretDatabase.getInstance(
+        application
+    )!!
     private val secretDao: SecretDao = secretDatabase.secretDao()
     private val secrets: LiveData<List<Secret>> = secretDao.getAll()
 

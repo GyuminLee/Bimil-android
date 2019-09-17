@@ -1,4 +1,4 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.bimil
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.gyumin.bimil.R
+import com.gyumin.bimil.data.Secret
 
 class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongClick: (Secret) -> Unit)
     : RecyclerView.Adapter<SecretAdapter.ViewHolder>() {
@@ -27,16 +29,16 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         private val nameTv = itemView.findViewById<TextView>(R.id.item_tv_name)
-        private val typeTv = itemView.findViewById<TextView>(R.id.item_tv_type)
+//        private val typeTv = itemView.findViewById<TextView>(R.id.item_tv_type)
         private val addressTv = itemView.findViewById<TextView>(R.id.item_tv_address)
-        private val noteTv = itemView.findViewById<TextView>(R.id.item_tv_note)
+//        private val noteTv = itemView.findViewById<TextView>(R.id.item_tv_note)
         private val faviconIv = itemView.findViewById<ImageView>(R.id.item_iv_icon)
 
         fun bind(secret: Secret) {
             nameTv.text = secret.name
-            typeTv.text = secret.type
+//            typeTv.text = secret.type
             addressTv.text = secret.address
-            noteTv.text = secret.note
+//            noteTv.text = secret.note
 //            faviconIv.setImageResource()
 
             itemView.setOnClickListener {

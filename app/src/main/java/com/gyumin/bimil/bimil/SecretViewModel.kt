@@ -1,8 +1,10 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.bimil
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
+import com.gyumin.bimil.data.Secret
+import com.gyumin.bimil.data.SecretRepository
 
 class SecretViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = SecretRepository(application)

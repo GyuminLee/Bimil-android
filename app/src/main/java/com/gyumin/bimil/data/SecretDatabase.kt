@@ -1,4 +1,4 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.data
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
@@ -8,7 +8,7 @@ import android.content.Context
 @Database(entities = [Secret::class], version = 1)
 
 abstract class SecretDatabase: RoomDatabase() {
-    abstract  fun secretDao(): SecretDao
+    abstract fun secretDao(): SecretDao
 
     companion object {
         private var instance: SecretDatabase? = null

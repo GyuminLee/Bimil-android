@@ -1,13 +1,14 @@
-package com.gyumin.bimil
+package com.gyumin.bimil.bimil
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import com.gyumin.bimil.R
+import com.gyumin.bimil.data.Secret
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +46,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(AddActivity.EXTRA_SECRET_NOTE, secret.note)
                 intent.putExtra(AddActivity.EXTRA_SECRET_ID, secret.id)
                 startActivity(intent)
-                }, {secret -> deleteDialog(secret)
+            }, { secret ->
+                deleteDialog(secret)
 
             })
         val lm = LinearLayoutManager(this)
