@@ -7,12 +7,28 @@
         android:background="@color/colorPrimaryDark"
         tools:context=".bimil.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:id="@+id/main_recycleview"
-            tools:listitem="@layout/item_secret"/>
+            android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                tools:listitem="@layout/item_secret" >
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+                android:id="@+id/initial_welcome_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="90dp"
+                android:src="@drawable/initial_welcome" />
+
+    </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/main_button"

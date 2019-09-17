@@ -42,11 +42,14 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
         private val faviconIv = itemView.findViewById<ImageView>(R.id.item_iv_icon)
 
         fun bind(secret: Secret) {
+
+            Glide.with(itemView).load("http://${secret.address}/favicon.ico").override(80,80).into(faviconIv)
+
             nameTv.text = secret.name
 
             if(secret.typeNumber) {
                 typeNumBtn.setBackgroundResource(R.drawable.button_type_bg)
-
+                typeNumBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeText))
             } else {
                 typeNumBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
                 typeNumBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
@@ -54,6 +57,8 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
 
             if(secret.typeCapital) {
                 typeCapBtn.setBackgroundResource(R.drawable.button_type_bg)
+                typeCapBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeText))
+
             } else {
                 typeCapBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
                 typeCapBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
@@ -62,15 +67,15 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
 
             if(secret.typeSpecialCharacter) {
                 typeSpeBtn.setBackgroundResource(R.drawable.button_type_bg)
+                typeSpeBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeText))
+
             } else {
                 typeSpeBtn.setBackgroundResource(R.drawable.button_type_gray_bg)
                 typeSpeBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.typeTextGray))
-
             }
 
             addressTv.text = secret.address
-            Glide.with(itemView).load("http://${secret.address}/favicon.ico").override(80,80).into(faviconIv)
-            Log.d("Test", ("http://${secret.address}/favicon.ico"))
+
             noteTv.text = secret.note
 
             itemView.setOnClickListener {

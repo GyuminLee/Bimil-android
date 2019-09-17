@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.view.View.*
 import com.gyumin.bimil.R
 import com.gyumin.bimil.data.Secret
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,20 +17,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var secretViewModel: SecretViewModel
 
-//    override fun onSaveInstanceState(outState: Bundle?) {
-//        super.onSaveInstanceState(outState)
-//        System.out.println("onSaveInstanceState Call")
-//        outState?.putString("stringKey", "String Test")
-//        outState?.putBoolean("booleanKey", true)
-//    }
-//
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//        if(savedInstanceState != null) {
-//            println(savedInstanceState.getString("stringKey"))
-//            println(savedInstanceState.getBoolean("booleanKey"))
-//        }
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         secretViewModel.getAll().observe(this, Observer<List<Secret>> { secrets ->
             adapter.setSecrets(secrets!!)
+            if(!secrets.isEmpty()) {
+                initial_welcome_iv.visibility = GONE
+            } else {
+                initial_welcome_iv.visibility = VISIBLE
+            }
         })
 
         main_button.setOnClickListener{
