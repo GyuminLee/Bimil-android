@@ -38,7 +38,7 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
         private val typeNumBtn = itemView.findViewById<Button>(R.id.btn_type_num)
         private val typeCapBtn = itemView.findViewById<Button>(R.id.btn_type_cap)
         private val typeSpeBtn = itemView.findViewById<Button>(R.id.btn_type_spe)
-//        private val noteTv = itemView.findViewById<TextView>(R.id.item_tv_note)
+        private val noteTv = itemView.findViewById<TextView>(R.id.item_tv_note)
         private val faviconIv = itemView.findViewById<ImageView>(R.id.item_iv_icon)
 
         fun bind(secret: Secret) {
@@ -71,7 +71,7 @@ class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongCli
             addressTv.text = secret.address
             Glide.with(itemView).load("http://${secret.address}/favicon.ico").override(80,80).into(faviconIv)
             Log.d("Test", ("http://${secret.address}/favicon.ico"))
-//            noteTv.text = secret.note
+            noteTv.text = secret.note
 
             itemView.setOnClickListener {
                 secretItemClick(secret)

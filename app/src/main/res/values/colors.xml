@@ -6,4 +6,5 @@
     <color name="typeText">#957B36</color>
     <color name="typeTextGray">#BDBDBD</color>
     <color name="black">#000000</color>
+    <color name="noteTvColor">#957B36</color>
 </resources>
