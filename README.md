@@ -1,4 +1,4 @@
-![Bimil](./assets/logo.png)
+<img src="./assets/logo.png" width="300"> 
 # Bimil-android
 Bimil, safe way to remember password.
 Bimil means secret in Korean. 
