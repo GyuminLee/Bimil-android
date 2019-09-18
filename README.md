@@ -10,7 +10,7 @@ Therefore, this app helps to remind the requirements at the website.
 Note that, Bimil doesn't require the password. 
 
 ## Screenshot
-![mainscreenshot](./assets/mainSS.png) ![welcomescreenshot](./assets/welcomSS.png) ![newscreenshot](./assets/newActivity.png)
+<img src="./assets/mainSS.jpeg" width="300"> <img src="./assets/welcomSS.jpeg" width="300"> <img src="./assets/newActivity.jpeg" width="300">
 
 ## Requirements
 minSdkVersion is 19 which is Android Kitkat.
