@@ -1,7 +1,7 @@
 package com.gyumin.bimil.data
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import java.lang.Exception
 
 class SecretRepository(application: Application) {

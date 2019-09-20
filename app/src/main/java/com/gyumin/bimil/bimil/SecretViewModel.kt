@@ -1,8 +1,8 @@
 package com.gyumin.bimil.bimil
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.gyumin.bimil.data.Secret
 import com.gyumin.bimil.data.SecretRepository
 
