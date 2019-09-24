@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         main_recycleview.layoutManager = lm
         main_recycleview.setHasFixedSize(true)
 
+        //Init ViewModel by ViewModelProviders
         secretViewModel = ViewModelProviders.of(this).get(SecretViewModel::class.java)
 
         secretViewModel.getAll().observe(this, Observer<List<Secret>> { secrets ->
