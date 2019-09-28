@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bimil</string>
+    <string name="search_hint">Search here</string>
 </resources>

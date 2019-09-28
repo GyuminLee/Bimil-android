@@ -25,12 +25,10 @@ class AddActivity : AppCompatActivity() {
             && intent.hasExtra(EXTRA_SECRET_NAME)
             && intent.hasExtra(EXTRA_SECRET_ID)
             ) {
-
             add_edittext_name.setText(intent.getStringExtra(EXTRA_SECRET_NAME))
             type_checkbox_number.isChecked = intent.getBooleanExtra(EXTRA_SECRET_TYPE_NUMBER, false)
             type_checkbox_capital.isChecked = intent.getBooleanExtra(EXTRA_SECRET_TYPE_CAPITAL, false)
-            type_checkbox_specialcharacter.isChecked = intent.getBooleanExtra(
-                EXTRA_SECRET_TYPE_SPECIALCHARACTER, false)
+            type_checkbox_specialcharacter.isChecked = intent.getBooleanExtra(EXTRA_SECRET_TYPE_SPECIALCHARACTER, false)
             add_edittext_address.setText(intent.getStringExtra(EXTRA_SECRET_ADDRESS))
             add_edittext_note.setText(intent.getStringExtra(EXTRA_SECRET_NOTE))
             id = intent.getLongExtra(EXTRA_SECRET_ID, -1)
