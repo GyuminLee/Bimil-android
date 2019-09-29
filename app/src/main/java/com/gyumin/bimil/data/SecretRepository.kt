@@ -16,6 +16,10 @@ class SecretRepository(application: Application) {
         return secrets
     }
 
+    fun search(input: String) {
+
+    }
+
     fun insert(secret: Secret) {
         try{
             val thread = Thread(Runnable {

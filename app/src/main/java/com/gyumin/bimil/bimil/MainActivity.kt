@@ -1,7 +1,5 @@
 package com.gyumin.bimil.bimil
 
-import android.app.SearchManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -77,7 +75,6 @@ class MainActivity : AppCompatActivity(){
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-
 
                 return false
             }
