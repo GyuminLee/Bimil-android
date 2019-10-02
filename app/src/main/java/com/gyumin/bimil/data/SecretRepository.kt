@@ -1,44 +1,40 @@
 package com.gyumin.bimil.data
 
 import android.app.Application
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import java.lang.Exception
 
-class SecretRepository(application: Application) {
+class SecretRepository(private val secretDao: SecretDao) {
+    val allSecrets: LiveData<List<Secret>> = secretDao.getAll()
 
-    private val secretDatabase = SecretDatabase.getInstance(
-        application
-    )!!
-    private val secretDao: SecretDao = secretDatabase.secretDao()
-    private val secrets: LiveData<List<Secret>> = secretDao.getAll()
-
-    fun getAll(): LiveData<List<Secret>> {
-        return secrets
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun insert(secret: Secret) {
+        secretDao.insert(secret)
     }
 
-    fun search(input: String) {
-
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun delete(secret: Secret) {
+        secretDao.delete(secret)
     }
 
-    fun insert(secret: Secret) {
-        try{
-            val thread = Thread(Runnable {
-                secretDao.insert(secret)
-            })
-            thread.start()
-        } catch (e: Exception) {
-            System.out.println(e)
-        }
-    }
 
-    fun delete(secret: Secret) {
-        try {
-            val thread = Thread(Runnable {
-                secretDao.delete(secret)
-            })
-            thread.start()
-        } catch (e: Exception) {
-            System.out.println(e)
-        }
-    }
+
+//    private val secretDatabase = SecretDatabase.getInstance(application)!!
+//    private val secretDao: SecretDao = secretDatabase.secretDao()
+//    private val secrets: LiveData<List<Secret>> = secretDao.getAll()
+//
+//    fun getAll(): LiveData<List<Secret>> {
+//        return secrets
+//    }
+//
+//    suspend fun insert(secret: Secret) {
+//        secretDao.insert(secret)
+//    }
+//
+//    suspend fun delete(secret: Secret) {
+//        secretDao.delete(secret)
+//    }
 }

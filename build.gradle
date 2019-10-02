@@ -14,7 +14,12 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+ext {
+    roomVersion = '2.1.0-alpha07'
+    archLifecycleVersion = '2.2.0-alpha01'
+    androidxArchVersion = '2.0.0'
+    coroutines = '1.2.0'
+}
 allprojects {
     repositories {
         google()

@@ -17,6 +17,4 @@ interface SecretDao {
     @Delete
     fun delete(secret: Secret)
 
-    @Query("SELECT * FROM secret where name LIKE :input ORDER BY id ASC")
-    fun search(input: String)
 }

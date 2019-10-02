@@ -48,14 +48,14 @@ class MainActivity : AppCompatActivity(){
         //Init ViewModel by ViewModelProviders
         secretViewModel = ViewModelProviders.of(this).get(SecretViewModel::class.java)
 
-        secretViewModel.getAll().observe(this, Observer<List<Secret>> { secrets ->
-            adapter.setSecrets(secrets!!)
+        secretViewModel.allSecrets.observe(this, Observer { secrets -> secrets?.let { adapter.setSecrets(it) }
             if(secrets.isNotEmpty()) {
                 initial_welcome_iv.visibility = GONE
             } else {
                 initial_welcome_iv.visibility = VISIBLE
             }
         })
+
 
         main_button.setOnClickListener{
             val intent = Intent(this, AddActivity::class.java)
