@@ -12,8 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".bimil.NewSecretActivity"></activity>
-        <activity android:name=".bimil.AddActivity"></activity>
-        <activity android:name=".bimil.MainActivity">
+        <activity android:name=".presentation.AddActivity"></activity>
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />

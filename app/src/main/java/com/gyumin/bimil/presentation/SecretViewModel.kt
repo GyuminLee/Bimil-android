@@ -1,19 +1,19 @@
-package com.gyumin.bimil.bimil
+package com.gyumin.bimil.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.launch
-import com.gyumin.bimil.data.Secret
+import com.gyumin.bimil.domain.Secret
 import com.gyumin.bimil.data.SecretDatabase
-import com.gyumin.bimil.data.SecretRepository
+import com.gyumin.bimil.domain.SecretRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
 
-class SecretViewModel(application: Application) : AndroidViewModel(application) {
+class SecretViewModel (application: Application) : AndroidViewModel(application) {
 
     private var parentJob = Job()
     // By default all the coroutines launched in this scope should be using the Main dispatcher
@@ -36,6 +36,10 @@ class SecretViewModel(application: Application) : AndroidViewModel(application) 
 
     fun delete(secret: Secret) = scope.launch(Dispatchers.IO) {
         repository.delete(secret)
+    }
+
+    fun searchForSecret(queryMsg : String) :LiveData<List<Secret>> {
+        return repository.search(queryMsg)
     }
 
     override fun onCleared() {

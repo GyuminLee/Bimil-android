@@ -1,7 +1,8 @@
-package com.gyumin.bimil.bimil
+package com.gyumin.bimil.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View.*
 import androidx.appcompat.app.AlertDialog
@@ -11,7 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gyumin.bimil.R
-import com.gyumin.bimil.data.Secret
+import com.gyumin.bimil.data.SecretAdapter
+import com.gyumin.bimil.domain.Secret
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -31,7 +33,10 @@ class MainActivity : AppCompatActivity(){
                 intent.putExtra(AddActivity.EXTRA_SECRET_NAME, secret.name)
                 intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_NUMBER, secret.typeNumber)
                 intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_CAPITAL, secret.typeCapital)
-                intent.putExtra(AddActivity.EXTRA_SECRET_TYPE_SPECIALCHARACTER, secret.typeSpecialCharacter)
+                intent.putExtra(
+                    AddActivity.EXTRA_SECRET_TYPE_SPECIALCHARACTER,
+                    secret.typeSpecialCharacter
+                )
                 intent.putExtra(AddActivity.EXTRA_SECRET_ADDRESS, secret.address)
                 intent.putExtra(AddActivity.EXTRA_SECRET_NOTE, secret.note)
                 intent.putExtra(AddActivity.EXTRA_SECRET_ID, secret.id)
@@ -63,6 +68,16 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
+    private fun getItemsFromDb(searchText: String) {
+        var searchText = searchText
+        searchText = "%$searchText%"
+        secretViewModel.searchForSecret(queryMsg = searchText)
+            .observe(this, Observer {
+                    list -> list?.let {
+                Log.e("List = ", list.toString())
+        } })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the options menu from XML
         val inflater = menuInflater
@@ -75,13 +90,17 @@ class MainActivity : AppCompatActivity(){
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-
-                return false
+                if (newText != null) {
+                    getItemsFromDb(newText)
+                }
+                return true
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                // task HERE
-                return false
+                if (query != null) {
+                    getItemsFromDb(query)
+                }
+                return true
             }
 
         })

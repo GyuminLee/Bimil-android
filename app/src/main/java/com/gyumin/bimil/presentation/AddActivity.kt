@@ -1,11 +1,11 @@
-package com.gyumin.bimil.bimil
+package com.gyumin.bimil.presentation
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.gyumin.bimil.R
-import com.gyumin.bimil.data.Secret
+import com.gyumin.bimil.domain.Secret
 import kotlinx.android.synthetic.main.secret_add.*
 
 class AddActivity : AppCompatActivity() {
@@ -45,7 +45,15 @@ class AddActivity : AppCompatActivity() {
             if(name.isEmpty()) {
                 Toast.makeText(this, "At lest, Please enter name and PW type.", Toast.LENGTH_SHORT).show()
             } else {
-                val secret = Secret(id, name, typeNumber, typeCapital, typeSpecialCharacter, address, note)
+                val secret = Secret(
+                    id,
+                    name,
+                    typeNumber,
+                    typeCapital,
+                    typeSpecialCharacter,
+                    address,
+                    note
+                )
                 secretViewModel.insert(secret)
                 finish()
             }

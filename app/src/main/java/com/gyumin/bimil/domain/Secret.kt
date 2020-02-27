@@ -1,4 +1,4 @@
-package com.gyumin.bimil.data
+package com.gyumin.bimil.domain
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

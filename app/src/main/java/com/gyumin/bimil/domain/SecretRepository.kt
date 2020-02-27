@@ -1,9 +1,8 @@
-package com.gyumin.bimil.data
+package com.gyumin.bimil.domain
 
-import android.app.Application
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import java.lang.Exception
+import com.gyumin.bimil.data.SecretDao
 
 class SecretRepository(private val secretDao: SecretDao) {
     val allSecrets: LiveData<List<Secret>> = secretDao.getAll()
@@ -18,6 +17,11 @@ class SecretRepository(private val secretDao: SecretDao) {
     @WorkerThread
     suspend fun delete(secret: Secret) {
         secretDao.delete(secret)
+    }
+
+    @WorkerThread
+    fun search(queryMsg : String) : LiveData<List<Secret>> {
+        return secretDao.getSearchResult(queryMsg)
     }
 
 }

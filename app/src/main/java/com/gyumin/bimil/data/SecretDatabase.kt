@@ -4,10 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
+import com.gyumin.bimil.domain.Secret
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @Database(entities = [Secret::class], version = 2)
 abstract class SecretDatabase : RoomDatabase() {
