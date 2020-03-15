@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolbar)
 
         adapter = SecretAdapter(
@@ -92,16 +91,12 @@ class MainActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
-                if (newText != null) {
-                    getItemsFromDb(newText)
-                }
+                getItemsFromDb(newText)
                 return true
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                if (query != null) {
-                    getItemsFromDb(query)
-                }
+                getItemsFromDb(query)
                 return true
             }
 
