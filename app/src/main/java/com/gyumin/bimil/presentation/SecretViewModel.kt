@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.launch
-import com.gyumin.bimil.domain.Secret
+import com.gyumin.bimil.data.Secret
 import com.gyumin.bimil.data.SecretDatabase
-import com.gyumin.bimil.domain.SecretRepository
+import com.gyumin.bimil.data.SecretRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

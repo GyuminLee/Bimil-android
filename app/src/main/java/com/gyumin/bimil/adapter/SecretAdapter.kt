@@ -1,4 +1,4 @@
-package com.gyumin.bimil.data
+package com.gyumin.bimil.adapter
 
 import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gyumin.bimil.R
-import com.gyumin.bimil.domain.Secret
+import com.gyumin.bimil.data.Secret
 
 class SecretAdapter(val secretItemClick: (Secret) -> Unit, val secretItemLongClick: (Secret) -> Unit)
     : RecyclerView.Adapter<SecretAdapter.ViewHolder>() {

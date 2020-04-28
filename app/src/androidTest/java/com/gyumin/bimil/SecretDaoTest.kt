@@ -5,7 +5,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.gyumin.bimil.domain.Secret
+import com.gyumin.bimil.data.Secret
 import com.gyumin.bimil.data.SecretDao
 import com.gyumin.bimil.data.SecretDatabase
 import org.junit.After

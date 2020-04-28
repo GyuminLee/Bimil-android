@@ -2,7 +2,6 @@ package com.gyumin.bimil.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.gyumin.bimil.domain.Secret
 
 
 @Dao

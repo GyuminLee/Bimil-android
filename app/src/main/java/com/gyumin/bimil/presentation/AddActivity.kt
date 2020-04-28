@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.gyumin.bimil.R
-import com.gyumin.bimil.domain.Secret
+import com.gyumin.bimil.data.Secret
 import kotlinx.android.synthetic.main.secret_add.*
 
 class AddActivity : AppCompatActivity() {

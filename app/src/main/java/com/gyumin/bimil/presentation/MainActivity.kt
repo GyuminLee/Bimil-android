@@ -12,14 +12,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gyumin.bimil.R
-import com.gyumin.bimil.data.SecretAdapter
-import com.gyumin.bimil.domain.Secret
+import com.gyumin.bimil.adapter.SecretAdapter
+import com.gyumin.bimil.data.Secret
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var secretViewModel: SecretViewModel
     private lateinit var adapter: SecretAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -101,14 +102,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-//    // Get the SearchView and set the searchable configuration
-//        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//        (menu!!.findItem(R.id.action_search).actionView as SearchView).apply {
-//            // Assumes current activity is the searchable activity
-//            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-//            setIconifiedByDefault(false) // Do not iconify the widget; expand it by default
-//        }
 
         return true
 

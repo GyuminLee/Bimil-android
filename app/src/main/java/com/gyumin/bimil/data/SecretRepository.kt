@@ -1,7 +1,8 @@
-package com.gyumin.bimil.domain
+package com.gyumin.bimil.data
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import com.gyumin.bimil.data.Secret
 import com.gyumin.bimil.data.SecretDao
 
 class SecretRepository(private val secretDao: SecretDao) {

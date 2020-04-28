@@ -1,4 +1,4 @@
-package com.gyumin.bimil.di
+package com.gyumin.bimil.unused
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
